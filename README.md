@@ -14,4 +14,6 @@ This repository shows how to implement reusable Codeblock components inside of a
 
 5. The `Codeblock.svelte` component accepts the filename of one of these snippets as a prop: `<Codeblock snippet="index.html" />` for example.
 
+Remarks: The pages with code blocks need to be [prerendered](https://kit.svelte.dev/docs/glossary#prerendering). Shiki needs to run on the server only. Otherwise there will be an error.
+
 Thanks to `karimfromjordan` and `Patrick` on the Svelte Discord server for their help with the implementation.
