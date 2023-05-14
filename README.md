@@ -13,3 +13,5 @@ This repository shows how to implement reusable Codeblock components inside of a
 4. These codes are then used in the `Codeblock.svelte` component.
 
 5. The `Codeblock.svelte` component accepts the filename of one of these snippets as a prop: `<Codeblock snippet="index.html" />` for example.
+
+Thanks to `karimfromjordan` and `Patrick` on the Svelte Discord server for their help with the implementation.
