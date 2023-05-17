@@ -76,11 +76,11 @@ export const load = async () => {
 };
 ```
 
-Notices that pages with code blocks need to be [prerendered](https://kit.svelte.dev/docs/glossary#prerendering). Shiki needs to run on the server only. Otherwise there will be an error. This is why we set `prerender = true` here.
+Notice that pages with code blocks need to be [prerendered](https://kit.svelte.dev/docs/glossary#prerendering), and Shiki needs to run on the server only. Otherwise there will be an error. This is why we set `prerender = true` here.
 
 ## Codeblock component
  
-These codes are then used in the Codeblock component. It exports a prop `snippet`, and computes the rendered code via `codes[snippet]`.
+These codes are then used in the Codeblock component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
 
 ```svelte
 <!-- Codeblock.svelte -->
