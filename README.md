@@ -77,7 +77,7 @@ When the code blocks are located only on a single page, you can also use a page 
 
 ## Codeblock component
 
-These codes are then used in the [Codeblock.svelte](https://github.com/ScriptRaccoon/codeblocks/blob/main/src/lib/components/Codeblock.svelte) component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
+These codes are then used in the [`Codeblock.svelte`](https://github.com/ScriptRaccoon/codeblocks/blob/main/src/lib/components/Codeblock.svelte) component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
 
 ```svelte
 <!-- $lib/components/Codeblock.svelte -->
