@@ -6,9 +6,7 @@ Demo: https://codeblocks-shiki.netlify.app/
 
 ## Snippets
 
-The snippets are located in the folder `$lib/snippets`. This folder can be changed.
-
-For example:
+The snippets are located in the folder [`$lib/snippets`](https://github.com/ScriptRaccoon/codeblocks/tree/main/src/lib/snippets). This folder can be changed. For example:
 
 ```css
 /* $lib/snippets/style.css */
@@ -23,7 +21,7 @@ Saving each snippet, even when it is just one line, in a separate file may sound
 
 ## Shiki code
 
-The file `codes.ts` exports a function which computes, with Shiki, an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the snippet path folder (this has to be a string literal, hence we cannot make it into a variable) as well as the supported languages and themes.
+The file [`codes.ts`](https://github.com/ScriptRaccoon/codeblocks/tree/main/src/lib/server/codes.ts) exports a function which computes, with Shiki, an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the snippet path folder (this has to be a string literal, hence we cannot make it into a variable) as well as the supported languages and themes.
 
 ```typescript
 // $lib/server/codes.ts
@@ -54,7 +52,7 @@ export async function compute_codes() {
 }
 ```
 
-To explain this a little bit, notice that Vite's `import.meta.glob` returns an object whose keys are the file paths and whose values are the file contents. In the `transform` function, we let Shiki operate on the file content and replace the file path by the file name. Shiki needs the language, which we can extract from the file extension.
+To explain this a little bit, notice that Vite's [`import.meta.glob`](https://vitejs.dev/guide/features.html) returns an object whose keys are the file paths and whose values are the file contents. In the `transform` function, we let Shiki operate on the file content and replace the file path by the file name. Shiki needs the language, which we can extract from the file extension.
 
 ## Page Data
 
@@ -79,7 +77,7 @@ When the code blocks are located only on a single page, you can also use a page 
 
 ## Codeblock component
 
-These codes are then used in the Codeblock component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
+These codes are then used in the [Codeblock.svelte](https://github.com/ScriptRaccoon/codeblocks/blob/main/src/lib/components/Codeblock.svelte) component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
 
 ```svelte
 <!-- $lib/components/Codeblock.svelte -->
