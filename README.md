@@ -1,6 +1,8 @@
 # Codeblock Components with Shiki in SvelteKit
 
-This repository shows how to implement reusable Codeblock components inside of a SvelteKit project. Syntax highlighting is implemented via [Shiki](https://github.com/shikijs/shiki). This is an alternative to the more common approach with markdown (see for example [SvelteKit Shiki Syntax Highlighting: Markdown Code Blocks](https://rodneylab.com/sveltekit-shiki-syntax-highlighting/) by Rodney Johnson).
+This repository shows how to implement reusable Codeblock components inside of a [SvelteKit project](https://kit.svelte.dev). Syntax highlighting is implemented via [Shiki](https://github.com/shikijs/shiki).
+
+This is an alternative to the more common approach with markdown (see for example [SvelteKit Shiki Syntax Highlighting: Markdown Code Blocks](https://rodneylab.com/sveltekit-shiki-syntax-highlighting/) by Rodney Johnson).
 
 Demo: https://codeblocks-shiki.netlify.app/
 
@@ -17,11 +19,13 @@ The snippets are located in the folder [`$lib/snippets`](https://github.com/Scri
 }
 ```
 
-Saving each snippet, even when it is just one line, in a separate file may sound overkill, but this is necessary for the method presented here, and it also has the advantage that your editor does the code formatting for you.
+Saving each snippet, even when it is just one line, in a separate file may sound overkill, but this is necessary for the method presented here, and it also has the advantage that your editor does the code formatting for you. (Shiki only highlights the code.)
 
 ## Shiki code
 
-The file [`codes.ts`](https://github.com/ScriptRaccoon/codeblocks/tree/main/src/lib/server/codes.ts) exports a function which computes, with Shiki, an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the snippet path folder (this has to be a string literal, hence we cannot make it into a variable) as well as the supported languages and themes.
+We install Shiki with `npm i shiki`.
+
+The file [`codes.ts`](https://github.com/ScriptRaccoon/codeblocks/tree/main/src/lib/server/codes.ts) exports a function which uses Shiki to compute an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the supported languages and themes as well as the snippet path folder (this has to be a string literal, hence we cannot make it into a variable).
 
 ```typescript
 // $lib/server/codes.ts
