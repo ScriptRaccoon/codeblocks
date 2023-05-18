@@ -6,12 +6,12 @@ Demo: https://codeblocks-shiki.netlify.app/
 
 ## Snippets
 
-The snippets are located in the folder `src/lib/snippets`. This folder can be changed.
+The snippets are located in the folder `$lib/snippets`. This folder can be changed.
 
 For example:
 
 ```css
-/* src/lib/snippets/style.css */
+/* $lib/snippets/style.css */
 
 .section {
     padding-block: 1rem;
@@ -23,10 +23,10 @@ Saving each snippet, even when it is just one line, in a separate file may sound
 
 ## Shiki code
 
-The file `src/lib/server/codes.ts` exports a function which computes, with Shiki, an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the snippet path folder (this has to be a string literal, hence we cannot make it into a variable) as well as the supported languages and themes.
+The file `codes.ts` exports a function which computes, with Shiki, an object with all HTML codes of the snippets. The keys are the file names. Here you can also adjust the snippet path folder (this has to be a string literal, hence we cannot make it into a variable) as well as the supported languages and themes.
 
 ```typescript
-// codes.ts
+// $lib/server/codes.ts
 
 import { getHighlighter } from "shiki";
 
@@ -82,7 +82,7 @@ When the code blocks are located only on a single page, you can also use a page 
 These codes are then used in the Codeblock component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
 
 ```svelte
-<!-- Codeblock.svelte -->
+<!-- $lib/components/Codeblock.svelte -->
 
 <script lang="ts">
     import { page } from "$app/stores";
@@ -95,7 +95,7 @@ These codes are then used in the Codeblock component. It exports a prop `snippet
 {/if}
 ```
 
-This produces rather crude-looking code blocks, through. You can improve the styling here as follows.
+This produces rather crude-looking code blocks, though. You can improve the styling here as follows.
 
 ```css
 div :global(pre) {
