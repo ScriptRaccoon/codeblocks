@@ -1,4 +1,5 @@
 <script>
+    import Header from "$lib/components/Header.svelte";
     import "./app.css";
 </script>
 
@@ -6,16 +7,13 @@
     <title>Codeblock Components with Shiki in SvelteKit</title>
 </svelte:head>
 
-<h1>Codeblock Components with Shiki in SvelteKit</h1>
+<Header />
 
 <main>
     <slot />
 </main>
 
 <style>
-    h1 {
-        text-align: center;
-    }
     main {
         max-width: 36rem;
         margin-inline: auto;

@@ -1,11 +1,11 @@
 # Codeblock Components with Shiki in SvelteKit
 
-https://codeblocks-shiki.netlify.app/
+This repository shows how to implement reusable Codeblock components inside of a SvelteKit project. Syntax highlighting is implemented via [Shiki](https://github.com/shikijs/shiki). This is an alternative to the more common approach with markdown (see for example [SvelteKit Shiki Syntax Highlighting: Markdown Code Blocks](https://rodneylab.com/sveltekit-shiki-syntax-highlighting/) by Rodney Johnson).
 
-This repository shows how to implement reusable Codeblock components inside of a SvelteKit project, with syntax highlighting by [Shiki](https://github.com/shikijs/shiki). This is an alternative to the more common approach with markdown (see for example [SvelteKit Shiki Syntax Highlighting: Markdown Code Blocks](https://rodneylab.com/sveltekit-shiki-syntax-highlighting/) by Rodney Johnson).
+Demo: https://codeblocks-shiki.netlify.app/
 
 ## Snippets
- 
+
 The snippets are located in the folder `src/lib/snippets`. This folder can be changed.
 
 For example:
@@ -13,12 +13,9 @@ For example:
 ```css
 /* src/lib/snippets/style.css */
 
-h1 {
-    color: red;
-}
-
-div {
-    padding: 1rem;
+.section {
+    padding-block: 1rem;
+    color: #222;
 }
 ```
 
@@ -30,7 +27,7 @@ The file `src/lib/server/codes.ts` exports a function which computes, with Shiki
 
 ```typescript
 // codes.ts
- 
+
 import { getHighlighter } from "shiki";
 
 export async function compute_codes() {
@@ -61,11 +58,11 @@ To explain this a little bit, notice that Vite's `import.meta.glob` returns an o
 
 ## Page Data
 
-The layout server load uses this function to make the codes available as page data. 
+The layout server load uses this function to make the codes available as page data.
 
 ```typescript
 // +layout.server.ts
- 
+
 export const prerender = true;
 
 import { compute_codes } from "$lib/server/codes";
@@ -79,12 +76,12 @@ export const load = async () => {
 Notice that pages with code blocks need to be [prerendered](https://kit.svelte.dev/docs/glossary#prerendering), and Shiki needs to run on the server only. Otherwise there will be an error. This is why we set `prerender = true` here.
 
 ## Codeblock component
- 
+
 These codes are then used in the Codeblock component. It exports a prop `snippet` and computes the rendered code via `codes[snippet]`.
 
 ```svelte
 <!-- Codeblock.svelte -->
- 
+
 <script lang="ts">
     import { page } from "$app/stores";
     export let snippet = "";
@@ -114,7 +111,7 @@ The background color `#1e1e1e` is taken from the `dark-plus` theme. The other CS
 The `Codeblock.svelte` component accepts the file name of one of these snippets as a prop.
 
 ```svelte
-<!-- page.svelte -->
+<!-- +page.svelte -->
 
 <Codeblock snippet="index.html" />
 <Codeblock snippet="script.js" />
