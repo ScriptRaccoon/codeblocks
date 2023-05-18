@@ -1,20 +1,21 @@
 <script lang="ts">
     import { page } from "$app/stores";
     export let snippet = "";
-    const codes = $page.data.codes;
+    const code = $page.data.codes?.[snippet];
 </script>
 
-{#if snippet && snippet in codes}
-    <div>{@html codes[snippet]}</div>
+{#if code}
+    <div>{@html code}</div>
+{:else}
+    <div><strong>Invalid code snippet: {snippet}</strong></div>
 {/if}
 
 <style>
-    div {
-        padding: 0.5rem 1rem;
-        border-radius: 0.2rem;
-        background-color: #1e1e1e;
-        margin-block: 1rem;
+    div :global(pre) {
         font-size: 1rem;
+        padding: 1.25rem;
+        border-radius: 0.5rem;
+        margin-block: 1rem;
         overflow-y: auto;
     }
 </style>
