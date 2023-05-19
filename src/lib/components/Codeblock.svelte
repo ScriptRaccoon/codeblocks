@@ -16,6 +16,6 @@
         padding: 1.25rem;
         border-radius: 0.5rem;
         margin-block: 1rem;
-        overflow-y: auto;
+        overflow: auto;
     }
 </style>
